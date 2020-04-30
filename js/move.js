@@ -31,21 +31,7 @@ $(function(){
 					$('#thumnail1').children('img').css({'border':'2px solid #000'});
 				});
 			});
-			//--이미지 로드와의 시간차로 height가 느리게 잡히는 것을 강제로 끌어내어 처음부터 height값 강제 적용.
-			function lazy_0(){
-				console.log(msheight);
-				if($('.slide-wrap').height()==0||$('.slide-wrap').height()==null||$('.slide').height()==0||$('.slide').height()==null){
-					console.log(msheight);
-					$(document).ready(function(){
-							msheight = $('.slide').children('img').height();
-							//$('.slide').children('img').css({'height':msheight});
-							//$('.slide').css({'height':msheight});
-							console.log(msheight);
-							$('.slide-wrap').css({'height':msheight});
-						}
-					);
-				};
-			};
+
 			if($('.slide-wrap').height()==0||$('.slide-wrap').height()==null||$('.slide').height()==0||$('.slide').height()==null){
 				setInterval(lazy_0,0);
 			};
@@ -83,10 +69,14 @@ $(function(){
 							},framespeed);
 						});
 						if((msheight==0)||(msheight==null)){
-							window.location.reload();
+							setInterval(lazy_0,0);
 						};
-						$('.slide-wrap').css({'height':msheight});
+						$('.slide-container').css({'min-height':msheight});
 					},framespeed);
+					stop_s();
+					stop_bar();
+					start_s();
+					startbar();
 				}
 			});
 
@@ -394,10 +384,10 @@ $(function(){
 			});
 
 			function lazy_0(){
-				if($('.slide-wrap').height()==0){
+				if($('.slide-wrap').height()==0||$('.slide-wrap').height()==null||$('.slide').height()==0||$('.slide').height()==null){
 					$(document).ready(function(){
 							msheight = $('.slide').children('img').height();
-							$('.slide-wrap').css({'height':msheight});
+							$('.slide-container').css({'min-height':msheight});
 							// console.log(msheight+' --')
 						}
 					);
