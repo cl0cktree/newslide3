@@ -250,11 +250,13 @@ $(function(){
 					stop_bar();
 					nextBtn();
 					if (tvalue>cal_width){
-						$('#next-btn').stop().click();
+						//$('#next-btn').stop().click();
+						nextBtn();
 						// console.log('next = '+tvalue+' / mswidth = '+mswidth+' / sort_index = '+sort_index);
 					}else if(tvalue<-cal_width){
 						stop_next();
-						$('#prev-btn').stop().click();
+						//$('#prev-btn').stop().click();
+						prevBtn();
 						// console.log('move = '+move);
 					}
 					if(yvalue==0){
@@ -286,11 +288,13 @@ $(function(){
 					stop_bar();
 					nextBtn();
 					if (tvalue>cal_width){
-						$('#next-btn').stop().click();
+						// $('#next-btn').stop().click();
+						nextBtn();
 						// console.log('next = '+tvalue+' / mswidth = '+mswidth+' / sort_index = '+sort_index);
 					}else if(tvalue<-cal_width){
 						stop_next();
-						$('#prev-btn').stop().click();
+						// $('#prev-btn').stop().click();
+						prevBtn();
 						// console.log('move = '+move);
 					}
 					if(yvalue==0){
